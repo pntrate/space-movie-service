@@ -1,5 +1,5 @@
 ﻿using Movies.Application.Abstractions;
-using Movies.Application.Models;
+using Movies.Application.Common.Models;
 using System.Text.Json;
 
 namespace Movies.Infrastructure.Services
@@ -31,11 +31,9 @@ namespace Movies.Infrastructure.Services
 			}
 
 			var responseJson = await httpResponseMessage.Content.ReadAsStringAsync();
-			var imdbSearchMovieResponse = JsonSerializer.Deserialize<ImdbSearchMovieResponse>(responseJson);
-			if (imdbSearchMovieResponse == null)
-			{
-				throw new Exception($"{nameof(ImdbService)} couldn't deserialize result");
-			}
+			var imdbSearchMovieResponse = JsonSerializer.Deserialize<ImdbSearchMovieResponse>(responseJson) 
+										  ?? throw new Exception($"{nameof(ImdbService)} Couldn't Deserialize Result");
+
 			return imdbSearchMovieResponse;
 		}
 	}

@@ -1,8 +1,8 @@
-﻿using Movies.Application.Models;
+﻿using Movies.Application.Common.Models;
 
 namespace Movies.Application.Abstractions
 {
-	public interface IImdbService
+    public interface IImdbService
 	{
 		Task<ImdbSearchMovieResponse> SearchMovie(string apiKey, string expression);
 	}

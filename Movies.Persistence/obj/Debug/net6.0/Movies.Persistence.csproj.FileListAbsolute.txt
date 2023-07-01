@@ -1,8 +1,3 @@
-D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.csproj.AssemblyReference.cache
-D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.GeneratedMSBuildEditorConfig.editorconfig
-D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.AssemblyInfoInputs.cache
-D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.AssemblyInfo.cs
-D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.csproj.CoreCompileInputs.cache
 D:\Movies\Movies.Persistence\bin\Debug\net6.0\Movies.Persistence.deps.json
 D:\Movies\Movies.Persistence\bin\Debug\net6.0\Movies.Persistence.runtimeconfig.json
 D:\Movies\Movies.Persistence\bin\Debug\net6.0\Movies.Persistence.dll
@@ -11,6 +6,11 @@ D:\Movies\Movies.Persistence\bin\Debug\net6.0\Movies.Application.dll
 D:\Movies\Movies.Persistence\bin\Debug\net6.0\Movies.Domain.dll
 D:\Movies\Movies.Persistence\bin\Debug\net6.0\Movies.Application.pdb
 D:\Movies\Movies.Persistence\bin\Debug\net6.0\Movies.Domain.pdb
+D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.csproj.AssemblyReference.cache
+D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.AssemblyInfoInputs.cache
+D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.AssemblyInfo.cs
+D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.csproj.CoreCompileInputs.cache
 D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.csproj.CopyComplete
 D:\Movies\Movies.Persistence\obj\Debug\net6.0\Movies.Persistence.dll
 D:\Movies\Movies.Persistence\obj\Debug\net6.0\refint\Movies.Persistence.dll

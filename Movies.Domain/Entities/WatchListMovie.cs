@@ -2,7 +2,7 @@
 
 namespace Movies.Domain.Entities
 {
-	public class WatchListMovie : Entity
+	public class WatchlistMovie : Entity
 	{
 		public Guid WatchListId { get; private set; }
 		public string ImdbMovieId { get; private set; }
@@ -12,7 +12,7 @@ namespace Movies.Domain.Entities
 		public DateTime? WatchDate { get; private set; }
 		public DateTime CreateDate { get; private set; }
 
-		private WatchListMovie(Guid watchListId, string imdbMovieId, string movieTitle, string description) : base()
+		private WatchlistMovie(Guid watchListId, string imdbMovieId, string movieTitle, string description) : base()
 		{
 			WatchListId = watchListId;
 			ImdbMovieId = imdbMovieId;
@@ -21,9 +21,9 @@ namespace Movies.Domain.Entities
 			CreateDate = DateTimeProvider.Now;
 		}
 
-		public static WatchListMovie Create(Guid watchListId, string imdbMovieId, string movieTitle, string description)
+		public static WatchlistMovie Create(Guid watchListId, string imdbMovieId, string movieTitle, string description)
 		{
-			return new WatchListMovie(watchListId, imdbMovieId, movieTitle, description);
+			return new WatchlistMovie(watchListId, imdbMovieId, movieTitle, description);
 		}
 
 		public void MarkAsWatched()

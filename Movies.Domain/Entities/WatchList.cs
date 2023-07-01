@@ -2,27 +2,27 @@
 
 namespace Movies.Domain.Entities
 {
-	public class WatchList : Entity
+	public class Watchlist : Entity
     {
         public Guid UserId { get; private set; }
         public DateTime LastUpdateDate { get; private set; }
 
-        public virtual List<WatchListMovie> Movies { get; private set; }
+        public virtual List<WatchlistMovie> Movies { get; private set; }
 
-        private WatchList(Guid userId, DateTime lastUpdateDate) : base()
+        private Watchlist(Guid userId, DateTime lastUpdateDate) : base()
         {
             UserId = userId;
             LastUpdateDate = lastUpdateDate;
         }
 
-        public static WatchList Create(Guid userId, DateTime lastUpdateDate)
+        public static Watchlist Create(Guid userId, DateTime lastUpdateDate)
         {
-            return new WatchList(userId, lastUpdateDate);
+            return new Watchlist(userId, lastUpdateDate);
         }
 
         public void AddMovie(string imdbMovieId, string movieTitle, string description)
         {
-            Movies.Add(WatchListMovie.Create(Id, imdbMovieId, movieTitle, description));
+            Movies.Add(WatchlistMovie.Create(Id, imdbMovieId, movieTitle, description));
 
             LastUpdateDate = DateTimeProvider.Now;
         }
