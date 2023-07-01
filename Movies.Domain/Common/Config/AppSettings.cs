@@ -3,7 +3,7 @@
 	public class AppSettings
 	{
 		public static readonly string ConnectionStringsKey = "ConnectionStrings";
-		public static readonly string ImdbKey = "Imdb";
+		public static readonly string ImdbSettingsKey = "ImdbSettings";
 
 		public ConnectionStrings ConnectionStrings { get; set; }
 		public ImdbSettings ImdbSettings { get; set; }

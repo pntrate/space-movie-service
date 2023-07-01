@@ -6,7 +6,7 @@ namespace Movies.Infrastructure.Services
 {
 	public class ImdbService : IImdbService
 	{
-		private const string CLIENT_NAME = "ImdbApi";
+		public const string CLIENT_NAME = "ImdbApi";
 
 		private readonly HttpClient _httpClient;
 		private readonly JsonSerializerOptions _serializerOptions;

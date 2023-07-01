@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
+using Movies.Application;
 using Movies.Application.Abstractions;
 using Movies.Domain.Common.Config;
+using Movies.Infrastructure;
 using Movies.Infrastructure.Services;
 
 namespace Movies.API
@@ -26,20 +28,10 @@ namespace Movies.API
 			services.AddControllers();
 			services.AddFluentValidationAutoValidation();
 
-			services.AddCors(o => o.AddDefaultPolicy(x => x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
+			services.AddAplicationLayer();
+			services.AddInfrastructure(Configuration);
+
 			services.AddEndpointsApiExplorer();
-			services.AddHttpContextAccessor();
-
-
-
-			var imdbSettings = Configuration.GetSection(AppSettings.ImdbKey).Get<ImdbSettings>();
-			services.AddHttpClient("ImdbApi", httpClient =>
-			{
-				httpClient.BaseAddress = new Uri(imdbSettings.BaseUrl);
-				httpClient.DefaultRequestHeaders.Add(HeaderNames.Accept, "application/json");
-			});
-
-			services.AddTransient<IImdbService, ImdbService>();
 
 			services.AddSwaggerGen(c =>
 			{
@@ -58,7 +50,6 @@ namespace Movies.API
 			app.UseSwaggerUI(c =>
 			{
 				c.SwaggerEndpoint("/swagger/v1/swagger.json", "IMDB.Movies.API");
-
 			});
 
 			app.UseForwardedHeaders(new ForwardedHeadersOptions
