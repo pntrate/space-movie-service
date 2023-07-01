@@ -6,7 +6,7 @@
 		public static readonly string ImdbKey = "Imdb";
 
 		public ConnectionStrings ConnectionStrings { get; set; }
-		public ImdbSettings Imdb { get; set; }
+		public ImdbSettings ImdbSettings { get; set; }
 	}
 
 	public class ConnectionStrings

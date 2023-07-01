@@ -1,5 +1,5 @@
 ﻿using MediatR;
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Options;
 using Movies.Application.Abstractions;
 using Movies.Application.Common;
 using Movies.Application.Common.Models;
@@ -10,18 +10,17 @@ namespace Movies.Application.Modules.Movie.Queries
 	public class FetchMoviesFromImdbQueryHandler : ApplicationBase, IRequestHandler<FetchMoviesFromImdbQuery, IEnumerable<ImdbMovie>>
 	{
 		private readonly IImdbService _imdbService;
-		private readonly IConfigurationRoot _configuration;
+		private readonly IOptions<AppSettings> _appSettings;
 
-        public FetchMoviesFromImdbQueryHandler(IImdbService imdbService, IConfigurationRoot configuration) : base()
+        public FetchMoviesFromImdbQueryHandler(IImdbService imdbService, IOptions<AppSettings> appSettings) : base()
         {
 			_imdbService = imdbService;
-			_configuration = configuration;
+			_appSettings = appSettings;
 		}
 
         public async Task<IEnumerable<ImdbMovie>> Handle(FetchMoviesFromImdbQuery request, CancellationToken cancellationToken)
 		{
-			var configuration = _configuration.GetSection(AppSettings.ImdbKey).Get<ImdbSettings>();
-			var response = await _imdbService.SearchMovie(configuration.ApiKey, request.Expression);
+			var response = await _imdbService.SearchMovie(_appSettings.Value.ImdbSettings.ApiKey, request.Expression);
 			return response.Results;
 		}
 	}
