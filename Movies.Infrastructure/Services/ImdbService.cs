@@ -31,7 +31,7 @@ namespace Movies.Infrastructure.Services
 			}
 
 			var responseJson = await httpResponseMessage.Content.ReadAsStringAsync();
-			var imdbSearchMovieResponse = JsonSerializer.Deserialize<ImdbSearchMovieResponse>(responseJson) 
+			var imdbSearchMovieResponse = JsonSerializer.Deserialize<ImdbSearchMovieResponse>(responseJson, _serializerOptions)
 										  ?? throw new Exception($"{nameof(ImdbService)} Couldn't Deserialize Result");
 
 			return imdbSearchMovieResponse;
