@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Movies.Application.Common.Models;
-using Movies.Application.Modules.Movie.Queries;
+using Movies.Application.Modules.Movie.Queries.FetchMoviesFromImdb;
 
 namespace Movies.API.Controllers
 {
-	[Route("movie")]
+    [Route("movie")]
 	public class MovieController : BaseApiController
 	{
 		[HttpGet("search")]

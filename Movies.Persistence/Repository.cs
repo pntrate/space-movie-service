@@ -42,13 +42,13 @@ namespace Movies.Persistence
 			return tracking ? queryable : queryable.AsNoTracking();
 		}
 
-		public TEntity? FirstOrDefault(
+		public async Task<TEntity?> FirstOrDefaultAsync(
 			Expression<Func<TEntity, bool>>? @where = null,
 			bool tracking = false,
 			params Expression<Func<TEntity, object>>[]? includes)
 		{
 			var queryable = Queryable(@where, tracking, includes);
-			return queryable.FirstOrDefault();
+			return await queryable.FirstOrDefaultAsync();
 		}
 
 		public void Create(TEntity entity)

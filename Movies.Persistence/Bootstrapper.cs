@@ -17,6 +17,7 @@ namespace Movies.Persistence
 			});
 
 			services.AddScoped<IWatchlistRepository, WatchlistRepository>();
+			services.AddScoped<IWatchlistMovieRepository, WatchlistMovieRepository>();
 		}
 	}
 }

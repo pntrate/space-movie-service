@@ -16,8 +16,4 @@
     <ProjectReference Include="..\Movies.Domain\Movies.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Modules\Watchlist\Queries\" />
-  </ItemGroup>
-
 </Project>

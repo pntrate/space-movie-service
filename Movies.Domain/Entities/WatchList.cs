@@ -7,12 +7,7 @@ namespace Movies.Domain.Entities
         public Guid UserId { get; private set; }
         public DateTime LastUpdateDate { get; private set; }
 
-        public virtual List<WatchlistMovie> Movies { get; set; }
-
-        private Watchlist()
-        {
-			
-		}
+        public virtual List<WatchlistMovie> Movies { get; private set; }
 
         private Watchlist(Guid userId) : base()
         {

@@ -1,9 +1,9 @@
 ﻿using FluentValidation;
 
-namespace Movies.Application.Modules.Watchlist.Commands
+namespace Movies.Application.Modules.Watchlist.Commands.AddMovieToWatchlist
 {
-	public class AddMovieToWatchlistCommandValidator : AbstractValidator<AddMovieToWatchlistCommand>
-	{
+    public class AddMovieToWatchlistCommandValidator : AbstractValidator<AddMovieToWatchlistCommand>
+    {
         public AddMovieToWatchlistCommandValidator()
         {
             RuleFor(r => r.UserId).NotEmpty();
