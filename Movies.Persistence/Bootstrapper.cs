@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Movies.Domain.Common.Contracts;
 using Movies.Persistence.Db;
+using Movies.Persistence.Repositories;
 
 namespace Movies.Persistence
 {
@@ -13,6 +15,8 @@ namespace Movies.Persistence
 			{
 				dbContextOptions.UseSqlServer(configuration.GetConnectionString("WatchlistDbConnection"));
 			});
+
+			services.AddScoped<IWatchlistRepository, WatchlistRepository>();
 		}
 	}
 }
