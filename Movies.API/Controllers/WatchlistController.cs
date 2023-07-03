@@ -17,7 +17,7 @@ namespace Movies.API.Controllers
 		}
 
 		[HttpGet("movies")]
-		public async Task<Watchlist> SearchMovie([FromQuery] GetWatchlistMoviesQuery request)
+		public async Task<Watchlist> WatchlistMovies([FromQuery] GetWatchlistMoviesQuery request)
 		{
 			return await Mediator.Send(request);
 		}
