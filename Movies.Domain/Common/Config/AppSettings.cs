@@ -11,7 +11,7 @@
 
 	public class ConnectionStrings
 	{
-		public string MoviesDbConnection { get; set; }
+		public string WatchlistDbConnection { get; set; }
 	}
 
 	public class ImdbSettings

@@ -1,12 +1,8 @@
 ﻿using FluentValidation.AspNetCore;
-using Microsoft.AspNetCore.HttpOverrides;
-using Microsoft.Net.Http.Headers;
 using Microsoft.OpenApi.Models;
 using Movies.Application;
-using Movies.Application.Abstractions;
 using Movies.Domain.Common.Config;
 using Movies.Infrastructure;
-using Movies.Infrastructure.Services;
 
 namespace Movies.API
 {
@@ -52,14 +48,8 @@ namespace Movies.API
 				c.SwaggerEndpoint("/swagger/v1/swagger.json", "IMDB.Movies.API");
 			});
 
-			app.UseForwardedHeaders(new ForwardedHeadersOptions
-			{
-				ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
-			});
-
 			app.UseRouting();
 			app.UseHttpsRedirection();
-			app.UseCors();
 
 			app.UseEndpoints(endpoints =>
 			{
