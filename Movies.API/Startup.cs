@@ -3,6 +3,7 @@ using Microsoft.OpenApi.Models;
 using Movies.Application;
 using Movies.Domain.Common.Config;
 using Movies.Infrastructure;
+using Movies.Persistence;
 
 namespace Movies.API
 {
@@ -26,6 +27,7 @@ namespace Movies.API
 
 			services.AddAplicationLayer();
 			services.AddInfrastructure(Configuration);
+			services.AddDataInfrastructure(Configuration);
 
 			services.AddEndpointsApiExplorer();
 
