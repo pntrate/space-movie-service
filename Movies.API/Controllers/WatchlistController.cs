@@ -11,7 +11,7 @@ namespace Movies.API.Controllers
 	public class WatchlistController : BaseApiController
 	{
 		[HttpPut("add-movie")]
-		public async Task<Unit> SearchMovie([FromBody] AddMovieToWatchlistCommand request)
+		public async Task<Unit> AddMovie([FromBody] AddMovieToWatchlistCommand request)
 		{
 			return await Mediator.Send(request);
 		}

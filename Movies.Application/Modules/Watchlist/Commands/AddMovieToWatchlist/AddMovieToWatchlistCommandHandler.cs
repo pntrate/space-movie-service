@@ -24,8 +24,11 @@ namespace Movies.Application.Modules.Watchlist.Commands.AddMovieToWatchlist
             }
             else
             {
-                watchlist.AddMovie(command.ImdbMovieId, command.Image, command.MovieTitle, command.Description);
-                _watchlistRepository.Update(watchlist);
+                if (watchlist.Movies.All(i => i.ImdbMovieId != command.ImdbMovieId))
+                {
+                    watchlist.AddMovie(command.ImdbMovieId, command.Image, command.MovieTitle, command.Description);
+                    _watchlistRepository.Update(watchlist);
+                }
             }
 
             await _watchlistRepository.Save();
