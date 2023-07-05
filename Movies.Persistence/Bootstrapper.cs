@@ -18,6 +18,12 @@ namespace Movies.Persistence
 
 			services.AddScoped<IWatchlistRepository, WatchlistRepository>();
 			services.AddScoped<IWatchlistMovieRepository, WatchlistMovieRepository>();
+
+			var sp = services.BuildServiceProvider();
+			var scopeFactory = sp.GetRequiredService<IServiceScopeFactory>();
+			using var scope = scopeFactory.CreateScope();
+			using var context = sp.GetService(typeof(WatchlistDbContext)) as WatchlistDbContext;
+			context?.Database.Migrate();
 		}
 	}
 }
