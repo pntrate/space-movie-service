@@ -23,9 +23,12 @@ namespace Movies.Domain.Entities
 
         public void AddMovie(string imdbMovieId, string? image, string movieTitle, string? description)
         {
-            Movies.Add(WatchlistMovie.Create(Id, imdbMovieId, image, movieTitle, description));
+            if (Movies.All(i => i.ImdbMovieId != imdbMovieId))
+            {
+                Movies.Add(WatchlistMovie.Create(Id, imdbMovieId, image, movieTitle, description));
 
-            LastUpdateDate = DateTimeProvider.Now;
+                LastUpdateDate = DateTimeProvider.Now;
+            }
         }
     }
 }
